@@ -27,6 +27,19 @@
 - (IBAction)convertHumanYearsToDogYears:(id)sender {
     int numberOfHumanYears = [self.numberOfHumanYears.text intValue];
     int numberOfDogYears = numberOfHumanYears * 7;
-    self.numberOfDogYears.text = [NSString stringWithFormat:@"%i",numberOfDogYears];
+    self.numberOfDogYears.text = [NSString stringWithFormat:@"Dog years (x7): %i",numberOfDogYears];
+}
+
+- (IBAction)convertToRealDogYears:(UIButton *)sender {
+    int numberOfHumanYears = [self.numberOfHumanYears.text intValue];
+    int numberOfRealDogYears;
+    
+    if (numberOfHumanYears > 2){
+        numberOfRealDogYears = (10.5 * 2) + ((numberOfHumanYears-2) * 4);
+    }
+    else {
+        numberOfRealDogYears = 10.5 * numberOfHumanYears;
+    }
+    self.numberOfDogYears.text = [NSString stringWithFormat:@"Dog years, real formula: %i",numberOfRealDogYears];
 }
 @end
